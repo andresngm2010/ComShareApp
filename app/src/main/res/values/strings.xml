@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ComShareApp</string>
+    <string name="txtViewActualizaciones">Últimas Actualizaciones</string>
+    <string name="txtViewVideojuegos">Videojuegos</string>
+    <string name="txtViewVerTodo">VER TODO</string>
+    <string name="txtViewLibros">Libros</string>
+    <string name="txtViewAnime">Anime</string>
+    <string name="txtViewMassEffect">MassEffect</string>
+    <string name="btnSeguir">SEGUIR</string>
+    <string name="txtViewPublicaciones">PUBLICACIONES</string>
+    <string name="chipNuevo">NUEVO</string>
+    <string name="chipTendencias">TENDENCIAS</string>
+</resources>
