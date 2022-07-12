@@ -36,4 +36,5 @@
     <string name="txtViewAñadeTitulo">Añade un Titulo</string>
     <string name="yxyViewPiensas">Comparte lo que piensas ....</string>
     <string name="btnPublicar">Publicar</string>
+    <string name="txtViewComunidades">Comunidades</string>
 </resources>

@@ -13,13 +13,13 @@ class MainActivity : AppCompatActivity() {
 
         val butonIniciarSesionGoogle = findViewById<Button>(R.id.btnIniciarSesionGoogle)
         butonIniciarSesionGoogle.setOnClickListener{
-            val prIntent : Intent = Intent(this,TodasComunidades::class.java)
+            val prIntent : Intent = Intent(this,PantallaPrincipal::class.java)
             startActivity(prIntent)
         }
 
         val butonIniciarSesion = findViewById<Button>(R.id.btnIngresar)
         butonIniciarSesion.setOnClickListener{
-            val prIntent : Intent = Intent(this,TodasComunidades::class.java)
+            val prIntent : Intent = Intent(this,PantallaPrincipal::class.java)
             startActivity(prIntent)
         }
 

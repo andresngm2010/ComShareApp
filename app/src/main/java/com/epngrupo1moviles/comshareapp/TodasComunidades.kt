@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 
 class TodasComunidades : AppCompatActivity() {
@@ -15,6 +16,13 @@ class TodasComunidades : AppCompatActivity() {
         imagenComunidad.setOnClickListener{
             cambiarAEjComunidad()
         }*/
+
+        val buttonHome = findViewById<ImageButton>(R.id.imageButtonHome)
+        buttonHome.setOnClickListener {
+            val prIntent : Intent = Intent(this,PantallaPrincipal::class.java)
+            startActivity(prIntent)
+        }
+
     }
 
     fun cambiarAEjComunidad(v: View?){
