@@ -22,7 +22,9 @@ class Busqueda_Comunidad :  AppCompatActivity(){
             val prIntent : Intent = Intent(this,PantallaPrincipal::class.java)
             startActivity(prIntent)
         }
+
         
+
 
     }
 
