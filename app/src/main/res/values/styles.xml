@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CampoTextoAzul" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#4C8BF5</item>
+        <item name="colorControlActivated">#9EC9EF</item>
+        <item name="android:textColorHighlight">#B0DCEA</item>
+    </style>
+
+</resources>

@@ -10,4 +10,17 @@
     <string name="txtViewPublicaciones">PUBLICACIONES</string>
     <string name="chipNuevo">NUEVO</string>
     <string name="chipTendencias">TENDENCIAS</string>
+    <string name="txtViewUsuario">Usuario</string>
+    <string name="txtContraseña">Contraseña</string>
+    <string name="chkBoxRecordarme">Recordarme</string>
+    <string name="btnSesionGoogle">Iniciar Sesión con Google</string>
+    <string name="btnIngresar">Ingresar</string>
+    <string name="txtSinCuenta">¿No tienes ninguna cuenta?</string>
+    <string name="txtViewRegistrate">Registrate</string>
+    <string name="txtViewCorreoEl">¿Cual es tu correo electrónico?</string>
+    <string name="txtViewIngreseContraseña">Ingresa una contraseña</string>
+    <string name="txtViewConfirmaContraseña">Confirma tu contraseña</string>
+    <string name="txtViewConfirmaTuEdad">Por último, confirma tu edad</string>
+    <string name="chkBoxConfirma18">Confirmo que soy mayor de 18 años</string>
+    <string name="btnRegistrar">Registrarse</string>
 </resources>
