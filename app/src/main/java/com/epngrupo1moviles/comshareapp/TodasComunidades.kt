@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
-import android.widget.ImageView
 
 class TodasComunidades : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +21,9 @@ class TodasComunidades : AppCompatActivity() {
             val prIntent : Intent = Intent(this,PantallaPrincipal::class.java)
             startActivity(prIntent)
         }
-        val buttonBuscar = findViewById<ImageButton>(R.id.imageButtonBuscar)
-        buttonBuscar.setOnClickListener {
-            val prIntent : Intent = Intent(this, Busqueda_Comunidad::class.java)
+        val btnBuscar = findViewById<ImageButton>(R.id.imageButtonBuscar)
+        btnBuscar.setOnClickListener {
+            val prIntent : Intent = Intent(this,Busqueda::class.java)
             startActivity(prIntent)
         }
 

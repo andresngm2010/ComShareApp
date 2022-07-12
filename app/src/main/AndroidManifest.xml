@@ -14,7 +14,7 @@
         android:theme="@style/Theme.ComShareApp"
         tools:targetApi="31">
         <activity
-            android:name=".activity_busqueda"
+            android:name=".Busqueda"
             android:exported="false" />
         <activity
             android:name=".PantallaPrincipal"

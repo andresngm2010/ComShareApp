@@ -15,5 +15,13 @@ class PantallaPrincipal : AppCompatActivity() {
             val prIntent : Intent = Intent(this,TodasComunidades::class.java)
             startActivity(prIntent)
         }
+
+        val buttonBuscar = findViewById<ImageButton>(R.id.imageButtonBuscar)
+        buttonBuscar.setOnClickListener {
+            val prIntent : Intent = Intent(this,Busqueda::class.java)
+            startActivity(prIntent)
+        }
+
+
     }
 }

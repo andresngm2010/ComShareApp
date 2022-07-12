@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Busqueda_Comunidad">
+    tools:context=".Busqueda">
 
 
     <ImageView
@@ -97,64 +97,67 @@
 
     <ImageView
         android:id="@+id/imageView44"
-        android:layout_width="100dp"
+        android:layout_width="93dp"
         android:layout_height="155dp"
         android:layout_marginTop="24dp"
         android:layout_weight="1"
         android:background="#88BBEA"
         android:backgroundTint="#88BBEA"
         android:onClick="cambiarAEjComunidad"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:srcCompat="@android:drawable/ic_menu_gallery"
-        tools:layout_editor_absoluteX="0dp"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView45"
-        android:layout_width="100dp"
+        android:layout_width="93dp"
         android:layout_height="155dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="24dp"
         android:layout_weight="1"
         android:background="#88BBEA"
         android:backgroundTint="#88BBEA"
         android:onClick="cambiarAEjComunidad"
+        app:layout_constraintStart_toEndOf="@+id/imageView44"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:srcCompat="@android:drawable/ic_menu_gallery"
-        tools:layout_editor_absoluteX="107dp"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView46"
-        android:layout_width="100dp"
+        android:layout_width="93dp"
         android:layout_height="155dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_weight="1"
         android:background="#88BBEA"
         android:backgroundTint="#88BBEA"
         android:onClick="cambiarAEjComunidad"
+        app:layout_constraintStart_toEndOf="@+id/imageView45"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:srcCompat="@android:drawable/ic_menu_gallery"
-        tools:layout_editor_absoluteX="215dp"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView47"
-        android:layout_width="100dp"
+        android:layout_width="93dp"
         android:layout_height="155dp"
         android:layout_marginTop="24dp"
         android:layout_weight="1"
         android:background="#88BBEA"
         android:backgroundTint="#88BBEA"
         android:onClick="cambiarAEjComunidad"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:srcCompat="@android:drawable/ic_menu_gallery"
-        tools:layout_editor_absoluteX="325dp"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="204dp"
         android:layout_height="40dp"
+        android:layout_marginTop="25dp"
         android:paddingTop="5dp"
         android:paddingEnd="30dp"
         android:text="@string/txtViewVerTodo"
@@ -162,13 +165,14 @@
         android:textColor="@color/material_dynamic_primary40"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="85dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="204dp"
         android:layout_height="40dp"
+        android:layout_marginTop="21dp"
         android:paddingTop="5dp"
         android:paddingEnd="30dp"
         android:text="@string/txtViewVerTodo"
@@ -176,7 +180,7 @@
         android:textColor="@color/material_dynamic_primary40"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="325dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView46"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -203,7 +207,7 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnVolver"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="#FFFFFF"
@@ -216,22 +220,24 @@
         android:id="@+id/textView32"
         android:layout_width="204dp"
         android:layout_height="40dp"
+        android:layout_marginTop="25dp"
         android:text="@string/txtViewComunidades"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="85dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView30"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="204dp"
         android:layout_height="40dp"
+        android:layout_marginTop="21dp"
         android:text="Noticias"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="325dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView44"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -239,9 +245,10 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView48"
-        tools:layout_editor_absoluteY="379dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView36"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -249,9 +256,10 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView49"
-        tools:layout_editor_absoluteY="439dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView37"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -259,9 +267,10 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView50"
-        tools:layout_editor_absoluteY="501dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView38"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -269,9 +278,10 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView51"
-        tools:layout_editor_absoluteY="563dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
