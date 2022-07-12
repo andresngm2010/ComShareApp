@@ -6,4 +6,16 @@
         <item name="android:textColorHighlight">#B0DCEA</item>
     </style>
 
+    <style name="CampoTextoMoEditable" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="android:textColorHighlight">#FFFFFF</item>
+    </style>
+
+    <style name="CampoTextoGrande" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#9EC9EF</item>
+        <item name="android:textColorHighlight">#B0DCEA</item>
+    </style>
+
 </resources>
