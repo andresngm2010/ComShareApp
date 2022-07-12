@@ -11,13 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val butonIniciarSesionGoogle = findViewById<Button>(R.id.button2)
+        val butonIniciarSesionGoogle = findViewById<Button>(R.id.btnIniciarSesionGoogle)
         butonIniciarSesionGoogle.setOnClickListener{
             val prIntent : Intent = Intent(this,TodasComunidades::class.java)
             startActivity(prIntent)
         }
 
-        val butonIniciarSesion = findViewById<Button>(R.id.button3)
+        val butonIniciarSesion = findViewById<Button>(R.id.btnIngresar)
         butonIniciarSesion.setOnClickListener{
             val prIntent : Intent = Intent(this,TodasComunidades::class.java)
             startActivity(prIntent)

@@ -10,8 +10,9 @@
         android:id="@+id/imageView2"
         android:layout_width="206dp"
         android:layout_height="160dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_final_removebg_preview" />
@@ -29,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/textView15"
+        android:id="@+id/txtViewUsuario"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
@@ -41,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/txtViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -50,10 +51,10 @@
         android:textColor="#587BF8"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUsuario" />
 
     <EditText
-        android:id="@+id/textView17"
+        android:id="@+id/txtViewContrasena"
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
@@ -62,10 +63,10 @@
         android:textSize="16sp"
         android:theme="@style/CampoTextoAzul"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewPassword" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxRecordarme"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -73,7 +74,7 @@
         android:text="@string/chkBoxRecordarme"
         android:textColor="#587BF8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/txtViewContrasena" />
 
     <TextView
         android:id="@+id/textView18"
@@ -85,10 +86,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxRecordarme" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/btnIniciarSesionGoogle"
         android:layout_width="320dp"
         android:layout_height="70dp"
         android:backgroundTint="#FFFFFF"
@@ -101,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -110,7 +111,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesionGoogle" />
 
     <TextView
         android:id="@+id/textView19"
