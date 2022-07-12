@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D6C4C4"
+    android:background="#FFFFFF"
     tools:context=".TodasComunidades">
 
     <ScrollView
@@ -35,6 +35,7 @@
                     android:layout_height="27dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/red_hat_text"
                     android:text="@string/txtViewActualizaciones"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -59,6 +60,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -68,6 +71,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -77,6 +82,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -86,6 +93,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -95,6 +104,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -104,6 +115,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -113,6 +126,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -122,6 +137,8 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
                             android:layout_weight="1"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -130,6 +147,8 @@
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_marginStart="7dp"
+                            android:background="#88BBEA"
+                            android:backgroundTint="#88BBEA"
                             android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
@@ -151,9 +170,10 @@
                     android:id="@+id/textView7"
                     android:layout_width="204dp"
                     android:layout_height="40dp"
+                    android:fontFamily="@font/red_hat_text"
                     android:paddingStart="15dp"
                     android:text="@string/txtViewVideojuegos"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -189,9 +209,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView32"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -200,9 +221,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -211,9 +233,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView33"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -222,9 +245,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView31"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -233,9 +257,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView35"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -244,9 +269,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView36"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -255,9 +281,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView37"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -266,9 +293,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -286,9 +314,10 @@
                     android:id="@+id/textView2"
                     android:layout_width="204dp"
                     android:layout_height="40dp"
+                    android:fontFamily="@font/red_hat_text"
                     android:paddingStart="15dp"
                     android:text="@string/txtViewAnime"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -323,9 +352,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView12"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -334,9 +364,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -345,9 +376,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView14"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -356,9 +388,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView13"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -367,9 +400,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView14"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -378,9 +412,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView13"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -389,9 +424,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView12"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -400,9 +436,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -415,9 +452,10 @@
                     android:id="@+id/textView4"
                     android:layout_width="204dp"
                     android:layout_height="40dp"
+                    android:fontFamily="@font/red_hat_text"
                     android:paddingStart="15dp"
                     android:text="@string/txtViewLibros"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -451,9 +489,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView21"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -462,9 +501,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -473,9 +513,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView22"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -484,9 +525,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView20"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -495,9 +537,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView25"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -506,9 +549,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView23"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -517,9 +561,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView26"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <ImageView
@@ -528,9 +573,10 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
+                    android:background="#4C8BF5"
+                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:onClick="cambiarAEjComunidad"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

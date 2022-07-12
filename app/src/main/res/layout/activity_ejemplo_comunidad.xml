@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#587BF8"
+    android:background="#FFFFFF"
     tools:context=".EjemploComunidad">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
@@ -39,10 +50,12 @@
             android:id="@+id/textView6"
             android:layout_width="160dp"
             android:layout_height="60dp"
+            android:fontFamily="@font/red_hat_text"
             android:paddingTop="15dp"
             android:text="@string/txtViewMassEffect"
             android:textAlignment="center"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageButton"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,6 +82,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="409dp"
         android:layout_height="669dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,8 +118,10 @@
                     android:layout_height="48dp"
                     android:layout_marginTop="15dp"
                     android:backgroundTint="#FFFFFF"
+                    android:fontFamily="@font/red_hat_text"
                     android:text="@string/btnSeguir"
                     android:textColor="#4C8BF5"
+                    android:textStyle="bold"
                     app:iconTint="#4C8BF5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -121,10 +137,10 @@
                     android:id="@+id/textView9"
                     android:layout_width="227dp"
                     android:layout_height="29dp"
+                    android:fontFamily="@font/red_hat_text"
                     android:paddingStart="35dp"
                     android:text="@string/txtViewPublicaciones"
                     android:textAlignment="viewStart"
-                    android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -137,10 +153,12 @@
                     android:layout_marginStart="60dp"
                     android:background="#88BBEA"
                     android:backgroundTint="#88BBEA"
+                    android:fontFamily="@font/red_hat_text"
                     android:text="@string/chipNuevo"
                     android:textAlignment="textEnd"
                     android:textColor="#FFFDFD"
                     android:textSize="10sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/chip5"
                     app:layout_constraintTop_toBottomOf="@+id/textView9"
                     tools:text="@string/chipNuevo" />
@@ -150,9 +168,11 @@
                     android:layout_width="119dp"
                     android:layout_height="48dp"
                     android:layout_marginStart="15dp"
+                    android:fontFamily="@font/red_hat_text"
                     android:text="@string/chipTendencias"
                     android:textAlignment="center"
                     android:textSize="10sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView9"
                     tools:text="@string/chipTendencias" />
@@ -168,7 +188,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +233,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView107"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -225,14 +245,14 @@
                         app:layout_constraintTop_toBottomOf="@+id/imageView28" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView105"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView107" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -245,14 +265,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView28"
+                        android:id="@+id/imageView105"
                         android:layout_width="53dp"
                         android:layout_height="52dp"
                         android:layout_marginStart="10dp"
@@ -264,7 +284,7 @@
                         tools:srcCompat="@drawable/ic_baseline_person_24" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView126"
                         android:layout_width="83dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="20dp"
@@ -272,11 +292,11 @@
                         android:text="andresngm2010"
                         android:textAlignment="center"
                         android:textSize="10sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toEndOf="@+id/imageView105"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView125"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginStart="15dp"
@@ -286,11 +306,11 @@
                         android:textAlignment="center"
                         android:textColor="#979797"
                         android:textSize="8sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView126"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView124"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -299,17 +319,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView105" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView123"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView124" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -322,14 +342,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView28"
+                        android:id="@+id/imageView104"
                         android:layout_width="53dp"
                         android:layout_height="52dp"
                         android:layout_marginStart="10dp"
@@ -341,7 +361,7 @@
                         tools:srcCompat="@drawable/ic_baseline_person_24" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView122"
                         android:layout_width="83dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="20dp"
@@ -349,11 +369,11 @@
                         android:text="andresngm2010"
                         android:textAlignment="center"
                         android:textSize="10sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toEndOf="@+id/imageView104"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView121"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginStart="15dp"
@@ -363,11 +383,11 @@
                         android:textAlignment="center"
                         android:textColor="#979797"
                         android:textSize="8sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView122"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView120"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -376,17 +396,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView104" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView119"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView120" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -399,14 +419,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView28"
+                        android:id="@+id/imageView103"
                         android:layout_width="53dp"
                         android:layout_height="52dp"
                         android:layout_marginStart="10dp"
@@ -418,7 +438,7 @@
                         tools:srcCompat="@drawable/ic_baseline_person_24" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView118"
                         android:layout_width="83dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="20dp"
@@ -426,11 +446,11 @@
                         android:text="andresngm2010"
                         android:textAlignment="center"
                         android:textSize="10sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toEndOf="@+id/imageView103"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView117"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginStart="15dp"
@@ -440,11 +460,11 @@
                         android:textAlignment="center"
                         android:textColor="#979797"
                         android:textSize="8sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView118"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView116"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -453,17 +473,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView103" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView115"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView116" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -476,14 +496,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView28"
+                        android:id="@+id/imageView102"
                         android:layout_width="53dp"
                         android:layout_height="52dp"
                         android:layout_marginStart="10dp"
@@ -495,7 +515,7 @@
                         tools:srcCompat="@drawable/ic_baseline_person_24" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView114"
                         android:layout_width="83dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="20dp"
@@ -503,11 +523,11 @@
                         android:text="andresngm2010"
                         android:textAlignment="center"
                         android:textSize="10sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toEndOf="@+id/imageView102"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView113"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginStart="15dp"
@@ -517,11 +537,11 @@
                         android:textAlignment="center"
                         android:textColor="#979797"
                         android:textSize="8sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView114"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView112"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -530,17 +550,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView102" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView111"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView112" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -553,14 +573,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView28"
+                        android:id="@+id/imageView101"
                         android:layout_width="53dp"
                         android:layout_height="52dp"
                         android:layout_marginStart="10dp"
@@ -572,7 +592,7 @@
                         tools:srcCompat="@drawable/ic_baseline_person_24" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView110"
                         android:layout_width="83dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="20dp"
@@ -580,11 +600,11 @@
                         android:text="andresngm2010"
                         android:textAlignment="center"
                         android:textSize="10sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toEndOf="@+id/imageView101"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView109"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginStart="15dp"
@@ -594,11 +614,11 @@
                         android:textAlignment="center"
                         android:textColor="#979797"
                         android:textSize="8sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView110"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView108"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -607,17 +627,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView101" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView106"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView108" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -630,14 +650,14 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/borde"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView28"
+                        android:id="@+id/imageView100"
                         android:layout_width="53dp"
                         android:layout_height="52dp"
                         android:layout_marginStart="10dp"
@@ -649,7 +669,7 @@
                         tools:srcCompat="@drawable/ic_baseline_person_24" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/textView104"
                         android:layout_width="83dp"
                         android:layout_height="15dp"
                         android:layout_marginStart="20dp"
@@ -657,11 +677,11 @@
                         android:text="andresngm2010"
                         android:textAlignment="center"
                         android:textSize="10sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageView28"
+                        app:layout_constraintStart_toEndOf="@+id/imageView100"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView12"
+                        android:id="@+id/textView103"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
                         android:layout_marginStart="15dp"
@@ -671,11 +691,11 @@
                         android:textAlignment="center"
                         android:textColor="#979797"
                         android:textSize="8sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
+                        app:layout_constraintStart_toEndOf="@+id/textView104"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView102"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -684,17 +704,17 @@
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+                        app:layout_constraintTop_toBottomOf="@+id/imageView100" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView101"
                         android:layout_width="342dp"
                         android:layout_height="147dp"
                         android:layout_marginTop="5dp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView102" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
