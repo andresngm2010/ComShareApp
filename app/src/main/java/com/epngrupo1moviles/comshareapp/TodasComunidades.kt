@@ -1,13 +1,18 @@
 package com.epngrupo1moviles.comshareapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class TodasComunidades : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +23,7 @@ class TodasComunidades : AppCompatActivity() {
         val email = extras.getString("email") ?:"Unknown"
         val provider = extras.getString("provider") ?:"Unknown"
 
-        /*val imagenComunidad = findViewById<ImageView>(R.id.imageView10)
-        imagenComunidad.setOnClickListener{
-            cambiarAEjComunidad()
-        }*/
-
-        //cargarImagen("MassEffect", "https://cdn2.steamgriddb.com/file/sgdb-cdn/icon_thumb/d2e9dd9dcd97fd12a2cb62e2bf7cbe35.png")
+        cargarComunidades()
 
         val buttonHome = findViewById<ImageButton>(R.id.imageButtonHome)
         buttonHome.setOnClickListener {
@@ -44,16 +44,47 @@ class TodasComunidades : AppCompatActivity() {
 
     }
 
-    /*fun cargarImagen(nombre: String, url: String){
-        var aux:String = "R.id.imageView" + nombre
-        Toast.makeText(this, "hola"+aux, Toast.LENGTH_SHORT).show()
-        val id = resources.getIdentifier(aux, "id", "myPackage")
+    fun cargarComunidades(){
+        val db = Firebase.firestore
+        db.collection("Comunidades")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result){
+                    cargarImagen(document.getString("nombre").toString(), document.getString("URL").toString())
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error al cargar documentos", Toast.LENGTH_LONG).show()
+            }
+    }
+
+    fun cargarImagen(nombre: String, url: String){
+        var aux:String = "imageView" + nombre
+        val id:Int = resources.getIdentifier(aux, "id", packageName)
         val imagen = findViewById<ImageView>(id)
         Glide.with(applicationContext).load(url).into(imagen)
-    }*/
+    }
 
     fun cambiarAEjComunidad(v: View?){
         val prIntent : Intent = Intent(this,EjemploComunidad::class.java)
         startActivity(prIntent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.cerrar_sesion,menu)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.cerrar_Sesion->{
+                FirebaseAuth.getInstance().signOut()
+                //onBackPressed()
+                val prIntent : Intent = Intent(this,MainActivity::class.java)
+                startActivity(prIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

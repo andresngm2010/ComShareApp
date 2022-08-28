@@ -33,11 +33,9 @@ class PantallaPrincipal : AppCompatActivity() {
 
         usuario = conseguirUsuario(email)
 
-        poblarComunidades()
-
-        /*val imagenPublicacion = findViewById<ImageView>(R.id.imageViewPublicacion)
+        val imagenPublicacion = findViewById<ImageView>(R.id.imageViewPublicacion)
         val url = "https://static.wikia.nocookie.net/naruto/images/a/a2/Naruto_Uzumaki_Parte_II_Anime.png/revision/latest?cb=20161013194453&path-prefix=es"
-        Glide.with(applicationContext).load(url).into(imagenPublicacion)*/
+        Glide.with(applicationContext).load(url).into(imagenPublicacion)
 
         val buttonTodasComunidades = findViewById<ImageButton>(R.id.imageButtonTodasComunidades)
         buttonTodasComunidades.setOnClickListener {
@@ -51,6 +49,15 @@ class PantallaPrincipal : AppCompatActivity() {
         val buttonBuscar = findViewById<ImageButton>(R.id.imageButtonBuscar)
         buttonBuscar.setOnClickListener {
             val prIntent : Intent = Intent(this,Busqueda::class.java).apply {
+                putExtra("email", email)
+                putExtra("provider", provider)
+            }
+            startActivity(prIntent)
+        }
+
+        val todasCom = findViewById<ImageView>(R.id.imageViewTodasCom)
+        todasCom.setOnClickListener {
+            val prIntent : Intent = Intent(this,TodasComunidades::class.java).apply {
                 putExtra("email", email)
                 putExtra("provider", provider)
             }
@@ -74,8 +81,10 @@ class PantallaPrincipal : AppCompatActivity() {
                         usuario.usuario = email
                         usuario.contraseña = document.getString("contraseña").toString()
                         usuario.imagen = document.getString("imagen").toString()
+                        val id = document.id
                         val avatar = findViewById<ImageView>(R.id.imageViewAvatar)
                         Glide.with(applicationContext).load(usuario.imagen).into(avatar)
+                        poblarComunidades(id)
                         return@addOnSuccessListener
                     }
                 }
@@ -92,41 +101,50 @@ class PantallaPrincipal : AppCompatActivity() {
     }
 
     @SuppressLint("CutPasteId")
-    private fun poblarComunidades(){
+    private fun poblarComunidades(id: String){
         val db = Firebase.firestore
-        db.collection("Comunidades")
+        db.collection("usuario/$id/Seguidas")
             .get()
             .addOnSuccessListener { result ->
-                val comunidades = ArrayList<Comunidad>()
-                var cont=0
-                for(document in result){
-                    val comunidad = document.toObject(Comunidad::class.java)
-                    if (cont==0){
-                        val imagen1 = findViewById<ImageView>(R.id.imageViewPrimera)
-                        val url:String = document.getString("URL").toString()
-                        Glide.with(applicationContext).load(url).into(imagen1)
-                        cont++
-                    }
-                    else if(cont==1){
-                        val imagen1 = findViewById<ImageView>(R.id.imageViewSegunda)
-                        val url:String = document.getString("URL").toString()
-                        Glide.with(applicationContext).load(url).into(imagen1)
-                        cont++
-                    }
-                    else if(cont==2){
-                        val imagen1 = findViewById<ImageView>(R.id.imageViewTercera)
-                        val url:String = document.getString("URL").toString()
-                        Glide.with(applicationContext).load(url).into(imagen1)
-                        cont++
-                    }
-                    comunidades.add(comunidad)
+                var cont = 0
+                Log.d(TAG, "Exito al cargar los nombres")
+                for (document in result){
+                    val db2 = Firebase.firestore
+                    db2.collection("Comunidades")
+                        .whereEqualTo("nombre", document.getString("nombre").toString())
+                        .get()
+                        .addOnSuccessListener { documents ->
+                            if(documents!= null && documents.documents.count()>0
+                            ){
+                                for (document in documents){
+                                    if (cont==0){
+                                        val imagen1 = findViewById<ImageView>(R.id.imageViewPrimera)
+                                        val url:String = document.getString("URL").toString()
+                                        Glide.with(applicationContext).load(url).into(imagen1)
+                                        cont++
+                                    }
+                                    else if(cont==1){
+                                        val imagen1 = findViewById<ImageView>(R.id.imageViewSegunda)
+                                        val url:String = document.getString("URL").toString()
+                                        Glide.with(applicationContext).load(url).into(imagen1)
+                                        cont++
+                                    }
+                                    else if(cont==2){
+                                        val imagen1 = findViewById<ImageView>(R.id.imageViewTercera)
+                                        val url:String = document.getString("URL").toString()
+                                        Glide.with(applicationContext).load(url).into(imagen1)
+                                        cont++
+                                    }
+                                }
+                            }
+                        }
                 }
             }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.cerrar_sesion,menu)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         return true
     }
 

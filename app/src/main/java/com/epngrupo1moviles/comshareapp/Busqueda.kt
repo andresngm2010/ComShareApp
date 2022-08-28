@@ -2,9 +2,12 @@ package com.epngrupo1moviles.comshareapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class Busqueda :  AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +45,24 @@ class Busqueda :  AppCompatActivity(){
     fun cambiarAEjComunidad(v: View?){
         val prIntent : Intent = Intent(this,EjemploComunidad::class.java)
         startActivity(prIntent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.cerrar_sesion,menu)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.cerrar_Sesion->{
+                FirebaseAuth.getInstance().signOut()
+                //onBackPressed()
+                val prIntent : Intent = Intent(this,MainActivity::class.java)
+                startActivity(prIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

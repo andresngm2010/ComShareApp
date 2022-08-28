@@ -3,8 +3,11 @@ package com.epngrupo1moviles.comshareapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
+import com.google.firebase.auth.FirebaseAuth
 
 class PantallaPublicar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +27,22 @@ class PantallaPublicar : AppCompatActivity() {
         buttonPublicar.setOnClickListener {
             finish()
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.cerrar_sesion,menu)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.cerrar_Sesion->{
+                FirebaseAuth.getInstance().signOut()
+                //onBackPressed()
+                val prIntent : Intent = Intent(this,MainActivity::class.java)
+                startActivity(prIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
