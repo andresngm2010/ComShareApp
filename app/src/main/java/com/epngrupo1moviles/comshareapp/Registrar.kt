@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.ktx.firestore
@@ -39,32 +41,20 @@ class Registrar : AppCompatActivity() {
             var contrasenaUsuario = editTextPassword.text.toString()
 
                 if(validarDatosRequeridos()){
-                    val  informacion_usuario = Comunity(correoUsuario,contrasenaUsuario)
-                    registrarNuevoUsuario(informacion_usuario)
-                    limpiarCajas(editTextCorreo,editTextPassword,editTextConfirmarPassword,checkBoxConfirmarAños)
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(correoUsuario,contrasenaUsuario)
+                        .addOnCompleteListener {
+                            if(it.isSuccessful){
+                                cambioActividad(it.result?.user?.email?:"", ProviderType.BASIC)
+                            }else{
+                                showAlert()
+                            }
+                        }
+
                 }
 
         }
 
     }
-
-    //inicializar Firebase
-
-    fun registrarNuevoUsuario(comunity: Comunity){
-        //inicializar firebase
-        val db = Firebase.firestore
-        db.collection("usuario")
-            .add(comunity)
-            .addOnSuccessListener { documentReference ->
-                Toast.makeText(this,"Usuario registrado existosamente",Toast.LENGTH_LONG).show()
-            }
-            .addOnFailureListener{
-                exception ->
-                Log.w( "Error adding document", exception)
-                Toast.makeText(this,"Error al ingresar el usuario", Toast.LENGTH_LONG).show()
-            }
-    }
-
 
     private fun validarDatosRequeridos():Boolean{
         val email = editTextCorreo.text.toString()
@@ -124,6 +114,24 @@ class Registrar : AppCompatActivity() {
 
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
+    }
+
+    private fun showAlert() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("Se ha producido un error autenticando al usuario")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+    private fun cambioActividad(email: String, provider: ProviderType) {
+        limpiarCajas(editTextCorreo,editTextPassword,editTextConfirmarPassword,checkBoxConfirmarAños)
+        Toast.makeText(this,"Se ha registrado con exito",Toast.LENGTH_SHORT).show()
+        val homeIntent = Intent(this, MainActivity::class.java).apply {
+            putExtra("email", email)
+            putExtra("provider", provider.name)
+        }
+        startActivity(homeIntent)
     }
     private fun limpiarCajas(email: EditText,contrasena: EditText,confirmarContrasena: EditText,checkbox: CheckBox){
         email.setText("")
