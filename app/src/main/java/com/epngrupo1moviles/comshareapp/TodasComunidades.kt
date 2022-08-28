@@ -50,7 +50,13 @@ class TodasComunidades : AppCompatActivity() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result){
-                    cargarImagen(document.getString("nombre").toString(), document.getString("URL").toString())
+                    val nombre = document.getString("nombre").toString()
+                    val url = document.getString("URL").toString()
+                    var aux:String = "imageView" + nombre
+                    val id:Int = resources.getIdentifier(aux, "id", packageName)
+                    val imagen = findViewById<ImageView>(id)
+                    cargarImagen(imagen, url)
+                    CambiarEJComunidad(imagen, url, nombre)
                 }
             }
             .addOnFailureListener {
@@ -58,16 +64,23 @@ class TodasComunidades : AppCompatActivity() {
             }
     }
 
-    fun cargarImagen(nombre: String, url: String){
-        var aux:String = "imageView" + nombre
-        val id:Int = resources.getIdentifier(aux, "id", packageName)
-        val imagen = findViewById<ImageView>(id)
-        Glide.with(applicationContext).load(url).into(imagen)
+    fun cargarImagen(v: ImageView, url: String){
+        Glide.with(applicationContext).load(url).into(v)
     }
 
-    fun cambiarAEjComunidad(v: View?){
-        val prIntent : Intent = Intent(this,EjemploComunidad::class.java)
-        startActivity(prIntent)
+    fun CambiarEJComunidad(v: ImageView, URL: String, nombreCom:String){
+        val extras = intent.extras ?: return
+        val email = extras.getString("email") ?:"Unknown"
+        val provider = extras.getString("provider") ?:"Unknown"
+        v.setOnClickListener {
+            val prIntent : Intent = Intent(this,EjemploComunidad::class.java).apply {
+                putExtra("email", email)
+                putExtra("provider", provider)
+                putExtra("url", URL)
+                putExtra("nombreCom", nombreCom)
+            }
+            startActivity(prIntent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

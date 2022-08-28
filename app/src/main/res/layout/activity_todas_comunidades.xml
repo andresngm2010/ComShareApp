@@ -62,7 +62,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -73,7 +72,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -84,7 +82,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -95,7 +92,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -106,7 +102,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -117,7 +112,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -128,7 +122,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -139,7 +132,6 @@
                             android:layout_weight="1"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                         <ImageView
@@ -149,7 +141,6 @@
                             android:layout_marginStart="7dp"
                             android:background="#88BBEA"
                             android:backgroundTint="#88BBEA"
-                            android:onClick="cambiarAEjComunidad"
                             app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                     </LinearLayout>
@@ -210,7 +201,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewCrashB"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -222,7 +212,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -234,7 +223,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewFinalFantasy"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -246,7 +234,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewNierAutomata"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -258,7 +245,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewPersona"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -270,7 +256,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewGodOfWar"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -282,7 +267,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewMassEffect"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -294,7 +278,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -310,7 +293,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-                <!--<TextView
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="204dp"
                     android:layout_height="40dp"
@@ -322,7 +305,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/textView3"
                     android:layout_width="204dp"
                     android:layout_height="40dp"
@@ -353,7 +336,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewNaruto"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -365,7 +347,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -377,7 +358,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewBleach"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -389,7 +369,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewRezero"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -401,7 +380,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewBleach"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -413,7 +391,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewRezero"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -425,7 +402,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewNaruto"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -437,7 +413,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -490,7 +465,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewDivergente"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -502,7 +476,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -514,7 +487,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageView1984"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -526,7 +498,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="105dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewJuegosDelHambre"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -538,7 +509,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewGoT"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -550,7 +520,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewMazeRunner"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -562,7 +531,6 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toEndOf="@+id/imageViewHarryPotter"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />
@@ -574,7 +542,6 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:background="#4C8BF5"
-                    android:onClick="cambiarAEjComunidad"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@android:drawable/ic_menu_gallery" />

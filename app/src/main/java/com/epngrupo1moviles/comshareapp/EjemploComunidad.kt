@@ -7,6 +7,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 
@@ -18,6 +21,15 @@ class EjemploComunidad : AppCompatActivity() {
         val extras = intent.extras ?: return
         val email = extras.getString("email") ?:"Unknown"
         val provider = extras.getString("provider") ?:"Unknown"
+        val url = extras.getString("url")?:""
+        val nombre = extras.getString("nombreCom")?:""
+
+        val imagen = findViewById<ImageView>(R.id.imageView)
+        Glide.with(applicationContext).load(url).into(imagen)
+
+        val nombreComunidad = findViewById<TextView>(R.id.textViewNombreComunidad)
+        nombreComunidad.text = nombre
+
 
         val buttonBack = findViewById<ImageButton>(R.id.imageButton)
         buttonBack.setOnClickListener {
