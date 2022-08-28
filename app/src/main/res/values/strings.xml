@@ -37,8 +37,6 @@
     <string name="yxyViewPiensas">Comparte lo que piensas ....</string>
     <string name="btnPublicar">Publicar</string>
     <string name="txtViewComunidades">Comunidades</string>
-    <string name="facebook_app_id">1284045899068121</string>
-    <string name="fb_login_protocol_scheme">fb1284045899068121</string>
-    <string name="facebook_client_token">c154fcbee53eb676b677ba70f82a60af</string>
 
+    <string name="txtViewFecha">14/08/2022</string>
 </resources>

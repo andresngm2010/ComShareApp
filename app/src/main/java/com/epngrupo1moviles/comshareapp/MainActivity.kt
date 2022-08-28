@@ -1,28 +1,27 @@
 package com.epngrupo1moviles.comshareapp
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-
 import android.widget.TextView
 import android.widget.Toast
+import android.util.Log
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import com.facebook.CallbackManager
-import com.facebook.FacebookCallback
-import com.facebook.FacebookException
-import com.facebook.login.LoginManager
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import java.nio.file.attribute.AclEntry
 
 enum class ProviderType{
     BASIC,GOOGLE,FACEBOOK
@@ -30,8 +29,12 @@ enum class ProviderType{
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
+    lateinit var auth: FirebaseAuth
+    lateinit var editTextEmail: EditText
+    lateinit var editTextPassword: EditText
+
     private val GOOGLE_SIGN_IN = 100
-    private val callbackManager = CallbackManager.Factory.create()
+    //private val callbackManager = CallbackManager.Factory.create()
     // ingreso con GOOGLE
     // Configure sign-in to request the user's ID, email address, and basic
     // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -39,13 +42,19 @@ class MainActivity : AppCompatActivity() {
     // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
 
     lateinit var btnIngresarGoogle: Button
-    lateinit var btnIngresarFacebook: Button
+    //lateinit var btnIngresarFacebook: Button
     lateinit var correoEditText: EditText
     lateinit var passwordEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        auth = Firebase.auth
+
+        editTextEmail = findViewById(R.id.txtViewUsuario)
+        editTextPassword = findViewById(R.id.txtViewContrasena)
+
         btnIngresarGoogle = findViewById(R.id.btnIniciarSesionGoogle)
         correoEditText = findViewById(R.id.txtViewUsuario)
         passwordEditText = findViewById(R.id.txtViewContrasena)
@@ -64,33 +73,29 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
         }
 
-
-            val butonIniciarSesion = findViewById<Button>(R.id.btnIngresar)
-            butonIniciarSesion.setOnClickListener {
-                var correoUsuario = correoEditText.text.toString()
-                var contrasenaUsuario = passwordEditText.text.toString()
-
-                if(validarDatosRequeridos()){
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(correoUsuario,contrasenaUsuario)
-                        .addOnCompleteListener {
-                            if(it.isSuccessful){
-                                cambioActividad(it.result?.user?.email?:"", ProviderType.BASIC)
-                            }else{
-                                showAlert()
-                            }
+        val butonIniciarSesion = findViewById<Button>(R.id.btnIngresar)
+        butonIniciarSesion.setOnClickListener {
+            var correoUsuario = correoEditText.text.toString()
+            var contrasenaUsuario = passwordEditText.text.toString()
+            if (validarDatosRequeridos()) {
+                FirebaseAuth.getInstance()
+                    .signInWithEmailAndPassword(correoUsuario, contrasenaUsuario)
+                    .addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            cambioActividad(it.result?.user?.email ?: "", ProviderType.BASIC)
+                        } else {
+                            showAlert()
                         }
 
-                }
+                    }
             }
+        }
 
-            val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
-            textRegistrarse.setOnClickListener {
-                val prIntent = Intent(this, Registrar::class.java)
-                startActivity(prIntent)
-            }
-
-
-
+        val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
+        textRegistrarse.setOnClickListener {
+            val prIntent = Intent(this, Registrar::class.java)
+            startActivity(prIntent)
+        }
     }
 
     @Deprecated("Deprecated in Java")
@@ -117,7 +122,6 @@ class MainActivity : AppCompatActivity() {
             } catch (e: ApiException) {
                 showAlert()
             }
-
         }
     }
 
@@ -177,12 +181,31 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
+
     private fun cambioActividad(email: String, provider: ProviderType) {
-        Toast.makeText(this,"Se ha autenticado con su usuario y contraseña",Toast.LENGTH_SHORT).show()
+        if (provider == ProviderType.GOOGLE){
+            Toast.makeText(this,"Se ha autenticado con Google",Toast.LENGTH_SHORT).show()
+        }
+        if (provider == ProviderType.BASIC){
+            Toast.makeText(this,"Se ha autenticado de forma basica",Toast.LENGTH_SHORT).show()
+        }
         val homeIntent = Intent(this, PantallaPrincipal::class.java).apply {
             putExtra("email", email)
             putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
+    }
+
+    private fun signInBasic(email: String, contraseña: String){
+        auth.signInWithEmailAndPassword(email, contraseña)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "signInWithEmail:success")
+                    cambioActividad(email, ProviderType.BASIC)
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(TAG, "signInWithEmail:failure", task.exception)
+                }
+            }
     }
 }

@@ -12,6 +12,10 @@ class EjemploComunidad : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ejemplo_comunidad)
 
+        val extras = intent.extras ?: return
+        val email = extras.getString("email") ?:"Unknown"
+        val provider = extras.getString("provider") ?:"Unknown"
+
         val buttonBack = findViewById<ImageButton>(R.id.imageButton)
         buttonBack.setOnClickListener {
             finish()
@@ -19,7 +23,10 @@ class EjemploComunidad : AppCompatActivity() {
 
         val buttonPublicar = findViewById<FloatingActionButton>(R.id.fabBtnNuevaPubli)
         buttonPublicar.setOnClickListener {
-            val prIntent : Intent = Intent(this,PantallaPublicar::class.java)
+            val prIntent : Intent = Intent(this,PantallaPublicar::class.java).apply {
+                putExtra("email", email)
+                putExtra("provider", provider)
+            }
             startActivity(prIntent)
         }
     }

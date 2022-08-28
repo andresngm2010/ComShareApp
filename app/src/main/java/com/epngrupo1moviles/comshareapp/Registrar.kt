@@ -55,6 +55,7 @@ class Registrar : AppCompatActivity() {
         }
 
     }
+    //inicializar Firebase
 
     private fun validarDatosRequeridos():Boolean{
         val email = editTextCorreo.text.toString()
