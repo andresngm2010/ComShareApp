@@ -1,6 +1,8 @@
 package com.epngrupo1moviles.comshareapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,8 +14,12 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class EjemploComunidad : AppCompatActivity() {
+    lateinit var buttonSeguir:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ejemplo_comunidad)
@@ -24,6 +30,8 @@ class EjemploComunidad : AppCompatActivity() {
         val provider = extras.getString("provider") ?:"Unknown"
         val url = extras.getString("url")?:""
         val nombre = extras.getString("nombreCom")?:""
+
+        instanciarBotonSeguir(email, nombre)
 
         //en la imagen de comunidad se carga la imagen correxpondiente a la comunidad
         val imagen = findViewById<ImageView>(R.id.imageView)
@@ -49,6 +57,107 @@ class EjemploComunidad : AppCompatActivity() {
             }
             startActivity(prIntent)
         }
+
+        buttonSeguir = findViewById<Button>(R.id.buttonSeguir)
+        buttonSeguir.setOnClickListener {
+            val seguida=Seguidas()
+            seguida.nombre = nombre
+            if(buttonSeguir.text == "Siguiendo"){
+                eliminarComunidadSeguida(email, seguida)
+            }
+            else{
+                añadirComunidadSeguida(email, seguida)
+            }
+            instanciarBotonSeguir(email, nombre)
+        }
+    }
+
+    fun añadirComunidadSeguida(email:String, seguida: Seguidas){
+        val db = Firebase.firestore
+        db.collection("usuario")
+            .whereEqualTo("usuario", email)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents!= null && documents.documents.count()>0){
+                    for (document in documents){
+                        val id = document.id
+                        coleccionSeguidas(id, seguida)
+                    }
+                }
+            }
+    }
+
+    fun eliminarComunidadSeguida(email:String, seguida: Seguidas){
+        val db = Firebase.firestore
+        db.collection("usuario")
+            .whereEqualTo("usuario", email)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents!= null && documents.documents.count()>0){
+                    for (document in documents){
+                        val id = document.id
+                        coleccionSeguidas1(id, seguida)
+                    }
+                }
+            }
+    }
+
+    fun coleccionSeguidas(id:String, seguida: Seguidas){
+        val db = Firebase.firestore
+        db.collection("usuario/$id/Seguidas")
+            .add(seguida)
+    }
+
+    fun coleccionSeguidas1(id:String, seguida: Seguidas){
+        val db = Firebase.firestore
+        db.collection("usuario/$id/Seguidas")
+            .whereEqualTo("nombre", seguida.nombre)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents!= null && documents.documents.count()>0){
+                    for (document in documents){
+                        val db2 = Firebase.firestore
+                        val id2 = document.id
+                        db2.collection("usuario/$id/Seguidas")
+                            .document(id2)
+                            .delete()
+                    }
+                }
+            }
+    }
+
+    fun instanciarBotonSeguir(email:String, nombreCom: String){
+        val db = Firebase.firestore
+        db.collection("usuario")
+            .whereEqualTo("usuario", email)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents!= null && documents.documents.count()>0){
+                    for (document in documents){
+                        val id = document.id
+                        collecionUsuario(id, nombreCom)
+                    }
+                }
+            }
+    }
+
+    fun collecionUsuario(id: String, nombreCom: String){
+        val db = Firebase.firestore
+        db.collection("usuario/$id/Seguidas")
+            .whereEqualTo("nombre", nombreCom)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents!= null && documents.documents.count()>0){
+                    buttonSeguir.text = resources.getString(R.string.textSiguiendo)
+                    buttonSeguir.setBackgroundColor(Color.parseColor("#88BBEA"))
+                    buttonSeguir.setTextColor(Color.parseColor("#FFFFFF"))
+                }
+                else{
+                    buttonSeguir.text = resources.getString(R.string.textSeguir)
+                    buttonSeguir.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                    buttonSeguir.setTextColor(Color.parseColor("#88BBEA"))
+                }
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

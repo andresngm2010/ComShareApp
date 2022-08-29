@@ -24,6 +24,8 @@
     <string name="chkBoxConfirma18">Confirmo que soy mayor de 18 años</string>
     <string name="btnRegistrar">Registrarse</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="textSeguir">Seguir</string>
+    <string name="textSiguiendo">Siguiendo</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

@@ -128,19 +128,25 @@ class PantallaPrincipal : AppCompatActivity() {
                                     if (cont==0){
                                         val imagen1 = findViewById<ImageView>(R.id.imageViewPrimera)
                                         val url:String = document.getString("URL").toString()
+                                        val nombre = document.getString("nombre").toString()
                                         Glide.with(applicationContext).load(url).into(imagen1)
+                                        CambiarEJComunidad(imagen1, url, nombre)
                                         cont++
                                     }
                                     else if(cont==1){
                                         val imagen1 = findViewById<ImageView>(R.id.imageViewSegunda)
                                         val url:String = document.getString("URL").toString()
+                                        val nombre = document.getString("nombre").toString()
                                         Glide.with(applicationContext).load(url).into(imagen1)
+                                        CambiarEJComunidad(imagen1, url, nombre)
                                         cont++
                                     }
                                     else if(cont==2){
                                         val imagen1 = findViewById<ImageView>(R.id.imageViewTercera)
                                         val url:String = document.getString("URL").toString()
+                                        val nombre = document.getString("nombre").toString()
                                         Glide.with(applicationContext).load(url).into(imagen1)
+                                        CambiarEJComunidad(imagen1, url, nombre)
                                         cont++
                                     }
                                 }
@@ -148,6 +154,25 @@ class PantallaPrincipal : AppCompatActivity() {
                         }
                 }
             }
+    }
+
+    fun CambiarEJComunidad(v: ImageView, URL: String, nombreCom:String){
+        //obtenemos los extras enviados
+        val extras = intent.extras ?: return
+        val email = extras.getString("email") ?:"Unknown"
+        val provider = extras.getString("provider") ?:"Unknown"
+        //se añade el onClickListener
+        v.setOnClickListener {
+            //se cambia a la pantalla de la Comunidad
+            val prIntent : Intent = Intent(this,EjemploComunidad::class.java).apply {
+                //se añaden los extras necesarios
+                putExtra("email", email)
+                putExtra("provider", provider)
+                putExtra("url", URL)
+                putExtra("nombreCom", nombreCom)
+            }
+            startActivity(prIntent)
+        }
     }
 
     //para mostrar el menu en la pantalla
