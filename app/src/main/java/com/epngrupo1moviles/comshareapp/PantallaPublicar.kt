@@ -2,18 +2,13 @@ package com.epngrupo1moviles.comshareapp
 
 import android.content.Intent
 import android.os.Bundle
-<<<<<<< Updated upstream
 import android.view.Menu
 import android.view.MenuItem
-=======
 import android.util.Log
->>>>>>> Stashed changes
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-<<<<<<< Updated upstream
 import com.google.firebase.auth.FirebaseAuth
-=======
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.ktx.firestore
@@ -21,7 +16,6 @@ import com.google.firebase.ktx.Firebase
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
->>>>>>> Stashed changes
 
 class PantallaPublicar : AppCompatActivity() {
 
@@ -29,6 +23,7 @@ class PantallaPublicar : AppCompatActivity() {
         lateinit var contenido: EditText
         lateinit var btnPublicar: Button
         lateinit var fechaPublicacion: Calendar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_publicar)
@@ -38,9 +33,9 @@ class PantallaPublicar : AppCompatActivity() {
         fechaPublicacion = Calendar.getInstance()
 
 
-       // val extras = intent.extras ?: return
-      // val email = extras.getString("email") ?:"Unknown"
-       // val provider = extras.getString("provider") ?:"Unknown"
+       //val extras = intent.extras ?: return
+      //val email = extras.getString("email") ?:"Unknown"
+       //val provider = extras.getString("provider") ?:"Unknown"
 
 
         btnPublicar.setOnClickListener {

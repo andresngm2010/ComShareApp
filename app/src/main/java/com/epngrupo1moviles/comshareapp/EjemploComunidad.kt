@@ -45,6 +45,7 @@ class EjemploComunidad : AppCompatActivity() {
             val prIntent : Intent = Intent(this,PantallaPublicar::class.java).apply {
                 putExtra("email", email)
                 putExtra("provider", provider)
+                putExtra("nombreCom", nombre)
             }
             startActivity(prIntent)
         }

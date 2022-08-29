@@ -83,28 +83,33 @@ class MainActivity : AppCompatActivity() {
             if (validarDatosRequeridos()) {//se verifican los datos
                 //hacemos la autenticacion en Firebase para correo y contraseña
 
-            GuardarDatosEnPreferencias()
-            if (validarDatosRequeridos()) {
+                GuardarDatosEnPreferencias()
+                if (validarDatosRequeridos()) {
 
-                FirebaseAuth.getInstance()
-                    .signInWithEmailAndPassword(correoUsuario, contrasenaUsuario)
-                    .addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            cambioActividad(it.result?.user?.email ?: "", ProviderType.BASIC) //se hace el cambio a la Pantalla Principal
-                        } else {
-                            showAlert()
+                    FirebaseAuth.getInstance()
+                        .signInWithEmailAndPassword(correoUsuario, contrasenaUsuario)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                cambioActividad(
+                                    it.result?.user?.email ?: "",
+                                    ProviderType.BASIC
+                                ) //se hace el cambio a la Pantalla Principal
+                            } else {
+                                showAlert()
+                            }
+
                         }
-
-                    }
+                }
             }
-        }
 
-        val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
-        textRegistrarse.setOnClickListener {
-            val prIntent = Intent(this, Registrar::class.java) //abrimos la actividad para registrarse
-            startActivity(prIntent)
-        }
+            val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
+            textRegistrarse.setOnClickListener {
+                val prIntent =
+                    Intent(this, Registrar::class.java) //abrimos la actividad para registrarse
+                startActivity(prIntent)
+            }
 
+        }
     }
 
     private fun LeerDatosDePreferencias(){
