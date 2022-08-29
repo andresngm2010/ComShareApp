@@ -1,7 +1,9 @@
 package com.epngrupo1moviles.comshareapp
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -24,27 +26,21 @@ import com.google.firebase.ktx.Firebase
 import java.nio.file.attribute.AclEntry
 
 enum class ProviderType{
-    BASIC,GOOGLE,FACEBOOK
+    BASIC,GOOGLE
 }
 
-@Suppress("DEPRECATION")
+
 class MainActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var editTextEmail: EditText
     lateinit var editTextPassword: EditText
-
+    lateinit var archivoManejador : com.epngrupo1moviles.comshareapp.FileHandler
     private val GOOGLE_SIGN_IN = 100
-    //private val callbackManager = CallbackManager.Factory.create()
-    // ingreso con GOOGLE
-    // Configure sign-in to request the user's ID, email address, and basic
-    // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-    // Configure sign-in to request the user's ID, email address, and basic
-    // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-
     lateinit var btnIngresarGoogle: Button
     //lateinit var btnIngresarFacebook: Button
     lateinit var correoEditText: EditText
     lateinit var passwordEditText: EditText
+    lateinit var checkRecordarme : CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +55,11 @@ class MainActivity : AppCompatActivity() {
         correoEditText = findViewById(R.id.txtViewUsuario)
         passwordEditText = findViewById(R.id.txtViewContrasena)
 
-        //boton para poder ingresar con Google
+        archivoManejador = SharedPreferencesManager(this)
+        checkRecordarme = findViewById(R.id.checkBoxRecordarme)
+        LeerDatosDePreferencias()
+
+
         btnIngresarGoogle.setOnClickListener {
             //CONFIGURACION
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -79,8 +79,13 @@ class MainActivity : AppCompatActivity() {
             //se leen los datos correspondientes
             var correoUsuario = correoEditText.text.toString()
             var contrasenaUsuario = passwordEditText.text.toString()
+
             if (validarDatosRequeridos()) {//se verifican los datos
                 //hacemos la autenticacion en Firebase para correo y contraseña
+
+            GuardarDatosEnPreferencias()
+            if (validarDatosRequeridos()) {
+
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(correoUsuario, contrasenaUsuario)
                     .addOnCompleteListener {
@@ -99,6 +104,30 @@ class MainActivity : AppCompatActivity() {
             val prIntent = Intent(this, Registrar::class.java) //abrimos la actividad para registrarse
             startActivity(prIntent)
         }
+
+    }
+
+    private fun LeerDatosDePreferencias(){
+        val listadoLeido = archivoManejador.ReadInformation()
+        if(listadoLeido.first != null){
+            checkRecordarme.isChecked = true
+        }
+        editTextEmail.setText ( listadoLeido.first )
+        editTextPassword.setText ( listadoLeido.second )
+    }
+
+    fun GuardarDatosEnPreferencias(){
+
+        val email = editTextEmail.text.toString()
+        val contrasena = editTextPassword.text.toString()
+        val listadoAGrabar:Pair<String,String>
+        if(checkRecordarme.isChecked){
+            listadoAGrabar = email to contrasena
+        }
+        else{
+            listadoAGrabar ="" to ""
+        }
+        archivoManejador.SaveInformation(listadoAGrabar)
     }
 
     @Deprecated("Deprecated in Java")

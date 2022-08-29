@@ -82,7 +82,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextContenido"
         android:layout_width="374dp"
         android:layout_height="300dp"
         android:layout_marginStart="15dp"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
 
     <Button
-        android:id="@+id/btnPublicar"
+        android:id="@+id/btnPublicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -108,5 +108,5 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextContenido" />
 </androidx.constraintlayout.widget.ConstraintLayout>

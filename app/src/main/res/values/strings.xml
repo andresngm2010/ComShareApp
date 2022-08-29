@@ -39,4 +39,5 @@
     <string name="txtViewComunidades">Comunidades</string>
 
     <string name="txtViewFecha">14/08/2022</string>
+    <string name="prefs_file">com.epngrupo1moviles.comshareapp.PREFERENCE_FILE_KEY</string>
 </resources>
