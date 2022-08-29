@@ -18,24 +18,28 @@ class EjemploComunidad : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ejemplo_comunidad)
 
+        //obtenemos todos los extras
         val extras = intent.extras ?: return
         val email = extras.getString("email") ?:"Unknown"
         val provider = extras.getString("provider") ?:"Unknown"
         val url = extras.getString("url")?:""
         val nombre = extras.getString("nombreCom")?:""
 
+        //en la imagen de comunidad se carga la imagen correxpondiente a la comunidad
         val imagen = findViewById<ImageView>(R.id.imageView)
         Glide.with(applicationContext).load(url).into(imagen)
 
+        //colocamos el nombre correspondiente de la comunidad
         val nombreComunidad = findViewById<TextView>(R.id.textViewNombreComunidad)
         nombreComunidad.text = nombre
 
-
+        //boton para ir atras
         val buttonBack = findViewById<ImageButton>(R.id.imageButton)
         buttonBack.setOnClickListener {
             finish()
         }
 
+        //para cambiar a la pantalla de publicar
         val buttonPublicar = findViewById<FloatingActionButton>(R.id.fabBtnNuevaPubli)
         buttonPublicar.setOnClickListener {
             val prIntent : Intent = Intent(this,PantallaPublicar::class.java).apply {

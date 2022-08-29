@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         correoEditText = findViewById(R.id.txtViewUsuario)
         passwordEditText = findViewById(R.id.txtViewContrasena)
 
-
+        //boton para poder ingresar con Google
         btnIngresarGoogle.setOnClickListener {
             //CONFIGURACION
             val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -73,16 +73,19 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(googleClient.signInIntent, GOOGLE_SIGN_IN)
         }
 
+        //boton para iniciar sesion de forma normal con correo y contraseña
         val butonIniciarSesion = findViewById<Button>(R.id.btnIngresar)
         butonIniciarSesion.setOnClickListener {
+            //se leen los datos correspondientes
             var correoUsuario = correoEditText.text.toString()
             var contrasenaUsuario = passwordEditText.text.toString()
-            if (validarDatosRequeridos()) {
+            if (validarDatosRequeridos()) {//se verifican los datos
+                //hacemos la autenticacion en Firebase para correo y contraseña
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(correoUsuario, contrasenaUsuario)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            cambioActividad(it.result?.user?.email ?: "", ProviderType.BASIC)
+                            cambioActividad(it.result?.user?.email ?: "", ProviderType.BASIC) //se hace el cambio a la Pantalla Principal
                         } else {
                             showAlert()
                         }
@@ -93,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
         val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
         textRegistrarse.setOnClickListener {
-            val prIntent = Intent(this, Registrar::class.java)
+            val prIntent = Intent(this, Registrar::class.java) //abrimos la actividad para registrarse
             startActivity(prIntent)
         }
     }
@@ -126,37 +129,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun validarDatosRequeridos():Boolean{
+        //coger los textos de los campos
         val email = correoEditText.text.toString()
         val contrasena = passwordEditText.text.toString()
-        if(email.isEmpty()&&contrasena.isEmpty() ){
+        if(email.isEmpty()&&contrasena.isEmpty() ){//verifica si los campos estan vacios
             Toast.makeText(baseContext, "Completa todos los campos",
                 Toast.LENGTH_SHORT).show()
             return false
         }
-        if (email.isEmpty()) {
+        if (email.isEmpty()) { //si el email esta vacio
             correoEditText.setError("El campo del email es obligatorio")
             correoEditText.requestFocus()
             return false
         }
-        if (!validarEmail(email)){
+        if (!validarEmail(email)){ //valida que el correo electronico sea valido
             correoEditText.setError("Correo electronico invalido")
             correoEditText.requestFocus()
             return false
         }
-        if (contrasena.isEmpty()) {
+        if (contrasena.isEmpty()) { //si la contraseña esta vacia
             passwordEditText.setError("El campo de contraseña es obligatorio")
             passwordEditText.requestFocus()
             return false
         }
-
-
-        if (contrasena.length < 8) {
+        if (contrasena.length < 8) { //valida la longitud de la contraseña
             passwordEditText.setError("La longitud minima de la contraseña es 8 caracteres")
             passwordEditText.requestFocus()
             return false
         }
-
-
         /*if(!checkBoxConfirmarAños.isChecked){
             checkBoxConfirmarAños.setError("Debe confirmar que es mayor de edad")
             checkBoxConfirmarAños.requestFocus()
@@ -167,12 +167,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun validarEmail(email: String): Boolean{
-
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
     }
 
-    private fun showAlert() {
+    private fun showAlert() { //muestra una alerta cuando no se ha podido auntenticar correctamente
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage("Se ha producido un error autenticando al usuario")
@@ -182,7 +181,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun cambioActividad(email: String, provider: ProviderType) {
+    private fun cambioActividad(email: String, provider: ProviderType) { //funcion para cambiar a la Pantalla Principal
         if (provider == ProviderType.GOOGLE){
             Toast.makeText(this,"Se ha autenticado con Google",Toast.LENGTH_SHORT).show()
         }
@@ -190,22 +189,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Se ha autenticado de forma basica",Toast.LENGTH_SHORT).show()
         }
         val homeIntent = Intent(this, PantallaPrincipal::class.java).apply {
-            putExtra("email", email)
+            putExtra("email", email) //se colocan como extras el email y el tipo de sesion
             putExtra("provider", provider.name)
         }
         startActivity(homeIntent)
     }
 
-    private fun signInBasic(email: String, contraseña: String){
-        auth.signInWithEmailAndPassword(email, contraseña)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "signInWithEmail:success")
-                    cambioActividad(email, ProviderType.BASIC)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.exception)
-                }
-            }
-    }
 }
