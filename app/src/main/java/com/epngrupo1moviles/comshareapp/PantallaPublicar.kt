@@ -33,9 +33,9 @@ class PantallaPublicar : AppCompatActivity() {
         fechaPublicacion = Calendar.getInstance()
 
 
-       //val extras = intent.extras ?: return
-      //val email = extras.getString("email") ?:"Unknown"
-       //val provider = extras.getString("provider") ?:"Unknown"
+       val extras = intent.extras ?: return
+       val email = extras.getString("email") ?:"Unknown"
+       val comunidad = extras.getString("nombreCom") ?:"Unknown"
 
 
         btnPublicar.setOnClickListener {
@@ -43,7 +43,7 @@ class PantallaPublicar : AppCompatActivity() {
             val tituloPublicacion = titulo.text.toString()
             val contenidoPublicacion = contenido.text.toString()
             val fecha = fechaPublicacion.time.toString()
-            val publicaciones = Publicacion(tituloPublicacion,contenidoPublicacion,"Carlos",fecha)
+            val publicaciones = Publicacion(tituloPublicacion,contenidoPublicacion,email,fecha,comunidad)
             ingresarPublicacion(publicaciones )
             finish()
         }
