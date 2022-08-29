@@ -7,7 +7,7 @@
     tools:context=".Busqueda">
 
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/imageView51"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -53,7 +53,55 @@
         android:onClick="cambiarAEjComunidad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView49"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@android:drawable/ic_menu_gallery" />-->
+
+    <ImageView
+        android:id="@+id/imageViewB5"
+        android:layout_width="93dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewB1"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageViewB7"
+        android:layout_width="93dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/imageViewB6"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewB3"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageViewB8"
+        android:layout_width="93dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewB4"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageViewB6"
+        android:layout_width="93dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/imageViewB5"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewB2"
+        app:srcCompat="@android:drawable/ic_menu_gallery"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView1"
@@ -96,68 +144,57 @@
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <ImageView
-        android:id="@+id/imageView44"
+        android:id="@+id/imageViewB1"
         android:layout_width="93dp"
         android:layout_height="155dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
-        android:background="#88BBEA"
-        android:backgroundTint="#88BBEA"
-        android:onClick="cambiarAEjComunidad"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/editViewBuscar"
         app:srcCompat="@android:drawable/ic_menu_gallery"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView45"
+        android:id="@+id/imageViewB2"
         android:layout_width="93dp"
         android:layout_height="155dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
-        android:background="#88BBEA"
-        android:backgroundTint="#88BBEA"
-        android:onClick="cambiarAEjComunidad"
-        app:layout_constraintStart_toEndOf="@+id/imageView44"
-        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintStart_toEndOf="@+id/imageViewB1"
+        app:layout_constraintTop_toBottomOf="@+id/editViewBuscar"
         app:srcCompat="@android:drawable/ic_menu_gallery"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView46"
+        android:id="@+id/imageViewB3"
         android:layout_width="93dp"
         android:layout_height="155dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
-        android:background="#88BBEA"
-        android:backgroundTint="#88BBEA"
-        android:onClick="cambiarAEjComunidad"
-        app:layout_constraintStart_toEndOf="@+id/imageView45"
-        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintStart_toEndOf="@+id/imageViewB2"
+        app:layout_constraintTop_toBottomOf="@+id/editViewBuscar"
         app:srcCompat="@android:drawable/ic_menu_gallery"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView47"
+        android:id="@+id/imageViewB4"
         android:layout_width="93dp"
         android:layout_height="155dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
         android:layout_weight="1"
-        android:background="#88BBEA"
-        android:backgroundTint="#88BBEA"
-        android:onClick="cambiarAEjComunidad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/editViewBuscar"
         app:srcCompat="@android:drawable/ic_menu_gallery"
         tools:ignore="MissingConstraints" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/textView34"
         android:layout_width="204dp"
         android:layout_height="40dp"
-        android:layout_marginTop="25dp"
         android:paddingTop="5dp"
         android:paddingEnd="30dp"
         android:text="@string/txtViewVerTodo"
@@ -165,10 +202,10 @@
         android:textColor="@color/material_dynamic_primary40"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/editViewBuscar"
+        tools:ignore="MissingConstraints" />-->
 
-    <TextView
+    <!--<TextView
         android:id="@+id/textView36"
         android:layout_width="204dp"
         android:layout_height="40dp"
@@ -181,10 +218,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView46"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints" />-->
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imageButtonBusqueda"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:backgroundTint="#FFFFFF"
@@ -192,19 +229,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_search_24" />
 
-    <TextView
-        android:id="@+id/textView30"
+    <EditText
+        android:id="@+id/editViewBuscar"
         android:layout_width="290dp"
         android:layout_height="60dp"
         android:fontFamily="@font/red_hat_text"
+        android:hint="@string/editTextBusqueda"
         android:paddingTop="15dp"
-        android:text="@string/txtViewMassEffect"
         android:textAlignment="center"
         android:textSize="24sp"
-        android:textStyle="bold"
+        android:textStyle="normal"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageButton
         android:id="@+id/btnVolver"
@@ -216,16 +253,16 @@
         app:srcCompat="@drawable/ic_baseline_arrow_back_24"
         />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/textView32"
-        android:layout_width="204dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="10dp"
         android:text="@string/txtViewComunidades"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/editViewBuscar"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -282,6 +319,6 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/imageView51"
         app:layout_constraintTop_toBottomOf="@+id/textView39"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
