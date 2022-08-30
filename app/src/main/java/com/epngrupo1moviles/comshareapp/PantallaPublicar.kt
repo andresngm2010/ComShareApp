@@ -33,9 +33,11 @@ class PantallaPublicar : AppCompatActivity() {
         fechaPublicacion = Calendar.getInstance()
 
 
-       val extras = intent.extras ?: return
-       val email = extras.getString("email") ?:"Unknown"
-       val comunidad = extras.getString("nombreCom") ?:"Unknown"
+        val extras = intent.extras ?: return
+        val email = extras.getString("email") ?:"Unknown"
+        val url = extras.getString("url") ?: ""
+        val provider = extras.getString("provider") ?: "Unknown"
+        val comunidad = extras.getString("nombreCom") ?:"Unknown"
 
 
         btnPublicar.setOnClickListener {
@@ -45,7 +47,14 @@ class PantallaPublicar : AppCompatActivity() {
             val fecha = fechaPublicacion.time.toString()
             val publicaciones = Publicacion(tituloPublicacion,contenidoPublicacion,email,fecha,comunidad)
             ingresarPublicacion(publicaciones )
-            finish()
+            val prIntent : Intent = Intent(this,EjemploComunidad::class.java).apply {
+                //se añaden los extras necesarios
+                putExtra("email", email)
+                putExtra("provider", provider)
+                putExtra("url", url)
+                putExtra("nombreCom", comunidad)
+            }
+            startActivity(prIntent)
         }
         val buttonClose = findViewById<ImageButton>(R.id.imageButtonCerrar)
         buttonClose.setOnClickListener {

@@ -8,15 +8,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -43,11 +41,14 @@ class EjemploComunidad : AppCompatActivity() {
     lateinit var fecha5: TextView
     lateinit var titulo5: TextView
     lateinit var contenido5: TextView
-
-
-
-
-
+    lateinit var usuario6: TextView
+    lateinit var fecha6: TextView
+    lateinit var titulo6: TextView
+    lateinit var contenido6: TextView
+    lateinit var usuario7: TextView
+    lateinit var fecha7: TextView
+    lateinit var titulo7: TextView
+    lateinit var contenido7: TextView
 
 
 
@@ -61,6 +62,9 @@ class EjemploComunidad : AppCompatActivity() {
         val provider = extras.getString("provider") ?:"Unknown"
         val url = extras.getString("url")?:""
         val nombre = extras.getString("nombreCom")?:""
+
+        publicaciones = ArrayList<Publicacion>()
+
         usuario1=findViewById(R.id.usuario1)
         fecha1=findViewById(R.id.fecha1)
         titulo1=findViewById(R.id.titulo1)
@@ -81,31 +85,16 @@ class EjemploComunidad : AppCompatActivity() {
         fecha5=findViewById(R.id.fecha5)
         titulo5=findViewById(R.id.titulo5)
         contenido5=findViewById(R.id.contenido5)
+        usuario6=findViewById(R.id.usuario6)
+        fecha6=findViewById(R.id.fecha6)
+        titulo6=findViewById(R.id.titulo6)
+        contenido6=findViewById(R.id.contenido6)
+        usuario7=findViewById(R.id.usuario7)
+        fecha7=findViewById(R.id.fecha7)
+        titulo7=findViewById(R.id.titulo7)
+        contenido7=findViewById(R.id.contenido7)
+
         obtenerPublicaciones(nombre,publicaciones)
-
-        usuario1.setText(publicaciones[0].usuario)
-        fecha1.setText(publicaciones[0].fecha)
-        titulo1.setText(publicaciones[0].titulo)
-        contenido1.setText(publicaciones[0].contenido)
-        usuario2.setText(publicaciones[1].usuario)
-        fecha2.setText(publicaciones[1].fecha)
-        titulo2.setText(publicaciones[1].titulo)
-        contenido2.setText(publicaciones[1].contenido)
-        usuario3.setText(publicaciones[2].usuario)
-        fecha3.setText(publicaciones[2].fecha)
-        titulo3.setText(publicaciones[2].titulo)
-        contenido3.setText(publicaciones[2].contenido)
-        usuario4.setText(publicaciones[3].usuario)
-        fecha4.setText(publicaciones[3].fecha)
-        titulo4.setText(publicaciones[3].titulo)
-        contenido4.setText(publicaciones[3].contenido)
-        usuario5.setText(publicaciones[4].usuario)
-        fecha5.setText(publicaciones[4].fecha)
-        titulo5.setText(publicaciones[4].titulo)
-        contenido5.setText(publicaciones[4].contenido)
-
-
-
 
         instanciarBotonSeguir(email, nombre)
 
@@ -129,6 +118,7 @@ class EjemploComunidad : AppCompatActivity() {
             val prIntent : Intent = Intent(this,PantallaPublicar::class.java).apply {
                 putExtra("email", email)
                 putExtra("provider", provider)
+                putExtra("url", url)
                 putExtra("nombreCom", nombre)
             }
             startActivity(prIntent)
@@ -242,11 +232,51 @@ class EjemploComunidad : AppCompatActivity() {
         db.collection("publicaciones")
             .whereEqualTo("comunidad",nombre)
             .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    val publicacion = document.toObject(Publicacion::class.java)
+            .addOnSuccessListener { documents ->
+                Toast.makeText(this, "Documentos con exito", Toast.LENGTH_LONG).show()
+                if(documents!= null && documents.documents.count()>0){
+                    var cont = 0
+                    for (document in documents) {
+                        val publicacion = document.toObject(Publicacion::class.java)
 
-                    publicaciones.add(publicacion)
+                        if(cont==0){
+                            usuario1.text = document.getString("usuario").toString()
+                            fecha1.text = document.getString("fecha").toString()
+                            titulo1.text = document.getString("titulo").toString()
+                            contenido1.text = document.getString("contenido").toString()
+                            cont++
+                        }
+                        else if (cont == 1){
+                            usuario2.text = document.getString("usuario").toString()
+                            fecha2.text = document.getString("fecha").toString()
+                            titulo2.text = document.getString("titulo").toString()
+                            contenido2.text = document.getString("contenido").toString()
+                            cont++
+                        }
+                        else if (cont == 2){
+                            usuario3.text = document.getString("usuario").toString()
+                            fecha3.text = document.getString("fecha").toString()
+                            titulo3.text = document.getString("titulo").toString()
+                            contenido3.text = document.getString("contenido").toString()
+                            cont++
+                        }
+                        else if (cont == 3){
+                            usuario4.text = document.getString("usuario").toString()
+                            fecha4.text = document.getString("fecha").toString()
+                            titulo4.text = document.getString("titulo").toString()
+                            contenido4.text = document.getString("contenido").toString()
+                            cont++
+                        }
+                        else if (cont == 4){
+                            usuario5.text = document.getString("usuario").toString()
+                            fecha5.text = document.getString("fecha").toString()
+                            titulo5.text = document.getString("titulo").toString()
+                            contenido5.text = document.getString("contenido").toString()
+                            cont++
+                        }
+                        publicaciones.add(publicacion)
+                    }
+
                 }
 
             }
