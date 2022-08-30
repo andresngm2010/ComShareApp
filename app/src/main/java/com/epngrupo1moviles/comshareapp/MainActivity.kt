@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var editTextEmail: EditText
     lateinit var editTextPassword: EditText
-    lateinit var archivoManejador : com.epngrupo1moviles.comshareapp.FileHandler
+    lateinit var archivoManejador : FileHandler
     private val GOOGLE_SIGN_IN = 100
     lateinit var btnIngresarGoogle: Button
     //lateinit var btnIngresarFacebook: Button
@@ -90,10 +90,7 @@ class MainActivity : AppCompatActivity() {
                         .signInWithEmailAndPassword(correoUsuario, contrasenaUsuario)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                cambioActividad(
-                                    it.result?.user?.email ?: "",
-                                    ProviderType.BASIC
-                                ) //se hace el cambio a la Pantalla Principal
+                                cambioActividad(it.result?.user?.email ?: "", ProviderType.BASIC) //se hace el cambio a la Pantalla Principal
                             } else {
                                 showAlert()
                             }
@@ -101,14 +98,13 @@ class MainActivity : AppCompatActivity() {
                         }
                 }
             }
+        }
 
-            val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
-            textRegistrarse.setOnClickListener {
-                val prIntent =
-                    Intent(this, Registrar::class.java) //abrimos la actividad para registrarse
-                startActivity(prIntent)
-            }
-
+        val textRegistrarse = findViewById<TextView>(R.id.txtViewRegistrar)
+        textRegistrarse.setOnClickListener {
+            val prIntent =
+                Intent(this, Registrar::class.java) //abrimos la actividad para registrarse
+            startActivity(prIntent)
         }
     }
 
@@ -148,7 +144,9 @@ class MainActivity : AppCompatActivity() {
                 //se recupera la cuenta autenticada
                 val account = task.getResult(ApiException::class.java)
                 val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-                FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
+                FirebaseAuth.getInstance()
+                    .signInWithCredential(credential)
+                    .addOnCompleteListener {
                     //autenticar en firebase
                     if (it.isSuccessful) {
                         cambioActividad(account.email ?: "", ProviderType.GOOGLE)
@@ -191,12 +189,6 @@ class MainActivity : AppCompatActivity() {
             passwordEditText.requestFocus()
             return false
         }
-        /*if(!checkBoxConfirmarAños.isChecked){
-            checkBoxConfirmarAños.setError("Debe confirmar que es mayor de edad")
-            checkBoxConfirmarAños.requestFocus()
-            return false
-        }*/
-
         return true
     }
 

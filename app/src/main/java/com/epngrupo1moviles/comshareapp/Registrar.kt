@@ -44,6 +44,7 @@ class Registrar : AppCompatActivity() {
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(correoUsuario,contrasenaUsuario)
                         .addOnCompleteListener {
                             if(it.isSuccessful){
+                                registrarUsuarioEnFirestore(correoUsuario, contrasenaUsuario, "https://img2.freepng.es/20190702/tl/kisspng-computer-icons-portable-network-graphics-avatar-tr-clip-directory-professional-transparent-amp-png-5d1bfa95e508d4.2980489715621147099381.jpg")
                                 cambioActividad(it.result?.user?.email?:"", ProviderType.BASIC)
                             }else{
                                 showAlert()
@@ -56,6 +57,16 @@ class Registrar : AppCompatActivity() {
 
     }
     //inicializar Firebase
+
+    fun registrarUsuarioEnFirestore(nombre: String, contrasena: String, url: String){
+        val db = Firebase.firestore
+        var usuario = Usuario()
+        usuario.usuario = nombre
+        usuario.contraseña = contrasena
+        usuario.imagen = url
+        db.collection("usuario")
+            .add(usuario)
+    }
 
     private fun validarDatosRequeridos():Boolean{
         val email = editTextCorreo.text.toString()
