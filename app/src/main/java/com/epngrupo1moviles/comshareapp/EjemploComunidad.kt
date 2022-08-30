@@ -138,6 +138,17 @@ class EjemploComunidad : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        publicaciones = ArrayList<Publicacion>()
+        val extras = intent.extras ?: return
+        val email = extras.getString("email") ?:"Unknown"
+        val provider = extras.getString("provider") ?:"Unknown"
+        val url = extras.getString("url")?:""
+        val nombre = extras.getString("nombreCom")?:""
+        obtenerPublicaciones(nombre, publicaciones)
+    }
+
     fun añadirComunidadSeguida(email:String, seguida: Seguidas){
         val db = Firebase.firestore
         db.collection("usuario")
