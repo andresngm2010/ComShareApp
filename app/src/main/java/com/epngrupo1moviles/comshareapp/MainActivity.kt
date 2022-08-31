@@ -125,7 +125,18 @@ class MainActivity : AppCompatActivity() {
         //usuario.contraseña = contrasena
         usuario.imagen = url
         db.collection("usuario")
-            .add(usuario)
+            .whereEqualTo("usuario", nombre)
+            .get()
+            .addOnSuccessListener { documents ->
+                if(documents != null && documents.documents.count()>0){
+                    return@addOnSuccessListener
+                }
+                else{
+                    db.collection("usuario")
+                        .add(usuario)
+                }
+            }
+
     }
 
     fun GuardarDatosEnPreferencias(){
