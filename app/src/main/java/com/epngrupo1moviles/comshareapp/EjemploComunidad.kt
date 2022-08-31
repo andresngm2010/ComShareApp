@@ -19,36 +19,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class EjemploComunidad : AppCompatActivity() {
-    lateinit var buttonSeguir:Button
-    lateinit var publicaciones: ArrayList<Publicacion>
-    lateinit var usuario1: TextView
-    lateinit var fecha1: TextView
-    lateinit var titulo1: TextView
-    lateinit var contenido1: TextView
-    lateinit var usuario2: TextView
-    lateinit var fecha2: TextView
-    lateinit var titulo2: TextView
-    lateinit var contenido2: TextView
-    lateinit var usuario3: TextView
-    lateinit var fecha3: TextView
-    lateinit var titulo3: TextView
-    lateinit var contenido3: TextView
-    lateinit var usuario4: TextView
-    lateinit var fecha4: TextView
-    lateinit var titulo4: TextView
-    lateinit var contenido4: TextView
-    lateinit var usuario5: TextView
-    lateinit var fecha5: TextView
-    lateinit var titulo5: TextView
-    lateinit var contenido5: TextView
-    lateinit var usuario6: TextView
-    lateinit var fecha6: TextView
-    lateinit var titulo6: TextView
-    lateinit var contenido6: TextView
-    lateinit var usuario7: TextView
-    lateinit var fecha7: TextView
-    lateinit var titulo7: TextView
-    lateinit var contenido7: TextView
+
 
 
 
