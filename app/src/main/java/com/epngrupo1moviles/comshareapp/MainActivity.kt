@@ -22,6 +22,7 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.nio.file.attribute.AclEntry
 
@@ -117,6 +118,16 @@ class MainActivity : AppCompatActivity() {
         editTextPassword.setText ( listadoLeido.second )
     }
 
+    fun registrarUsuarioGoogleEnFirestore(nombre: String, url: String){
+        val db = Firebase.firestore
+        var usuario = Usuario()
+        usuario.usuario = nombre
+        //usuario.contraseña = contrasena
+        usuario.imagen = url
+        db.collection("usuario")
+            .add(usuario)
+    }
+
     fun GuardarDatosEnPreferencias(){
 
         val email = editTextEmail.text.toString()
@@ -149,7 +160,10 @@ class MainActivity : AppCompatActivity() {
                     .addOnCompleteListener {
                     //autenticar en firebase
                     if (it.isSuccessful) {
+
                         cambioActividad(account.email ?: "", ProviderType.GOOGLE)
+                        // registrar en firebase
+                        registrarUsuarioGoogleEnFirestore(account.email.toString(),"https://img2.freepng.es/20190702/tl/kisspng-computer-icons-portable-network-graphics-avatar-tr-clip-directory-professional-transparent-amp-png-5d1bfa95e508d4.2980489715621147099381.jpg")
                     } else {
                         showAlert()
                     }
